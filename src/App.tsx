@@ -1,26 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FunctionComponent, useState } from "react";
+import Output from "./Output";
+import FilePicker from "./FilePicker";
 
-function App() {
+const App: FunctionComponent = () => {
+  const [backgroundImageUrl, setBackgroundImageUrl] = useState<string>("");
+  const [backgroundImageWidth, setBackgroundImageWidth] = useState<number>(640);
+  const [backgroundImageHeight, setBackgroundImageHeight] = useState<number>(480);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header className="hero is-primary">
+        <div className="hero-body">
+          <div className="container">
+            <h1 className="ld-title">Lib Dem Image Maker</h1>
+          </div>
+        </div>
       </header>
-    </div>
+      <main className="section">
+        <div className="container">
+          <div className="columns">
+            <div className="column">
+              <h2 className="ld-subtitle">Design</h2>
+              <h3 className="ld-intro">Background</h3>
+              <div className="ld-content">
+                <FilePicker
+                  onChange={(url, width, height) => {
+                    setBackgroundImageUrl(url);
+                    setBackgroundImageWidth(width);
+                    setBackgroundImageHeight(height);
+                  }}
+                />
+              </div>
+              <h3 className="ld-intro">Text</h3>
+              <h3 className="ld-intro">Overlays</h3>
+            </div>
+            <div className="column">
+              <h2 className="ld-subtitle">Output</h2>
+              <Output
+                outputWidth={backgroundImageWidth}
+                outputHeight={backgroundImageHeight}
+                backgroundImageWidth={backgroundImageWidth}
+                backgroundImageHeight={backgroundImageHeight}
+                backgroundImageUrl={backgroundImageUrl}
+              />
+            </div>
+          </div>
+        </div>
+      </main>
+    </>
   );
-}
+};
 
 export default App;
