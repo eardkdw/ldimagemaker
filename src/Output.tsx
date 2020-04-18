@@ -7,12 +7,16 @@ const Output: FunctionComponent<{
   backgroundImageUrl: string;
   backgroundImageWidth: number;
   backgroundImageHeight: number;
+  backgroundImageOffsetX: number;
+  backgroundImageOffsetY: number;
 }> = ({
   outputWidth,
   outputHeight,
   backgroundImageUrl,
   backgroundImageHeight,
   backgroundImageWidth,
+  backgroundImageOffsetX,
+  backgroundImageOffsetY,
 }) => {
   const [showSaveModal, setShowSaveModal] = useState<boolean>(false);
   const svgRef = useRef<SVGSVGElement>(null);
@@ -33,6 +37,8 @@ const Output: FunctionComponent<{
             href={backgroundImageUrl}
             width={backgroundImageWidth}
             height={backgroundImageHeight}
+            x={-backgroundImageOffsetX}
+            y={-backgroundImageOffsetY}
           />
         </svg>
       </div>
