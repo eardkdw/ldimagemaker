@@ -16,31 +16,31 @@ const App: FunctionComponent = () => {
   const [overlayImageHeight, setOverlayImageHeight] = useState<number | null>(null);
 
   const [textLine1, setTextLine1] = useState<string>("");
-  const [textLine1Background, setTextLine1Background] = useState<string>("#FAA61A");
+  const [textLine1Background, setTextLine1Background] = useState<string>("#faa61a");
   const [textLine1Foreground, setTextLine1Foreground] = useState<string>("#151721");
 
   const [textLine2, setTextLine2] = useState<string>("");
-  const [textLine2Background, setTextLine2Background] = useState<string>("#FAA61A");
+  const [textLine2Background, setTextLine2Background] = useState<string>("#faa61a");
   const [textLine2Foreground, setTextLine2Foreground] = useState<string>("#151721");
 
   const [textLine3, setTextLine3] = useState<string>("");
-  const [textLine3Background, setTextLine3Background] = useState<string>("#FAA61A");
+  const [textLine3Background, setTextLine3Background] = useState<string>("#faa61a");
   const [textLine3Foreground, setTextLine3Foreground] = useState<string>("#151721");
 
   const [textLine4, setTextLine4] = useState<string>("");
-  const [textLine4Background, setTextLine4Background] = useState<string>("#FAA61A");
+  const [textLine4Background, setTextLine4Background] = useState<string>("#faa61a");
   const [textLine4Foreground, setTextLine4Foreground] = useState<string>("#151721");
 
   const [textLine5, setTextLine5] = useState<string>("");
-  const [textLine5Background, setTextLine5Background] = useState<string>("#FAA61A");
+  const [textLine5Background, setTextLine5Background] = useState<string>("#faa61a");
   const [textLine5Foreground, setTextLine5Foreground] = useState<string>("#151721");
 
   const [textLine6, setTextLine6] = useState<string>("");
-  const [textLine6Background, setTextLine6Background] = useState<string>("#FAA61A");
+  const [textLine6Background, setTextLine6Background] = useState<string>("#faa61a");
   const [textLine6Foreground, setTextLine6Foreground] = useState<string>("#151721");
 
   const [textLine7, setTextLine7] = useState<string>("");
-  const [textLine7Background, setTextLine7Background] = useState<string>("#FAA61A");
+  const [textLine7Background, setTextLine7Background] = useState<string>("#faa61a");
   const [textLine7Foreground, setTextLine7Foreground] = useState<string>("#151721");
 
   return (
