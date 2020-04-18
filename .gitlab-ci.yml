@@ -10,7 +10,7 @@ before_script:
 test:
   stage: test
   script:
-    - CI=true yarn test
+    - CI=true yarn test --passWithNoTests
 
 pages:
   stage: deploy

@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useRef, useState } from "react";
 import SaveModal from "./SaveModal";
+import TextWithBackground from "./TextWithBackground";
 
 const Output: FunctionComponent<{
   outputWidth: number;
@@ -9,6 +10,8 @@ const Output: FunctionComponent<{
   backgroundImageHeight: number;
   backgroundImageOffsetX: number;
   backgroundImageOffsetY: number;
+  text: { text: string; foregroundColour: string; backgroundColour: string }[];
+  overlays: { url: string; width: number; height: number }[];
 }> = ({
   outputWidth,
   outputHeight,
@@ -17,9 +20,13 @@ const Output: FunctionComponent<{
   backgroundImageWidth,
   backgroundImageOffsetX,
   backgroundImageOffsetY,
+  text,
+  overlays,
 }) => {
   const [showSaveModal, setShowSaveModal] = useState<boolean>(false);
   const svgRef = useRef<SVGSVGElement>(null);
+  const lineHeight = outputHeight / 8;
+  const textSize = outputHeight / 12;
 
   return (
     <>
@@ -40,12 +47,42 @@ const Output: FunctionComponent<{
             x={-backgroundImageOffsetX}
             y={-backgroundImageOffsetY}
           />
+          {text.map(({ text, foregroundColour, backgroundColour }, i) => (
+            <TextWithBackground
+              x={0.02 * outputWidth}
+              y={(i + 1.5) * lineHeight}
+              textSize={textSize}
+              text={text}
+              foregroundColour={foregroundColour}
+              backgroundColour={backgroundColour}
+            />
+          ))}
+          {overlays.map(({ url, width, height }) => {
+            const scaledWidth =
+              outputWidth / outputHeight > width / height
+                ? width * (outputHeight / height)
+                : outputWidth;
+            const scaledHeight =
+              outputWidth / outputHeight > width / height
+                ? outputHeight
+                : height * (outputWidth / width);
+
+            return (
+              <image
+                href={url}
+                x={(outputWidth - scaledWidth) / 2}
+                y={(outputHeight - scaledHeight) / 2}
+                width={scaledWidth}
+                height={scaledHeight}
+              />
+            );
+          })}
         </svg>
       </div>
       <div className="buttons">
-        <div className="button" onClick={() => setShowSaveModal(true)}>
+        <button className="button" onClick={() => setShowSaveModal(true)}>
           Save image
-        </div>
+        </button>
       </div>
     </>
   );
