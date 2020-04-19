@@ -160,64 +160,66 @@ const App: FunctionComponent = () => {
               </div>
             </div>
             <div className="column">
-              <h2 className="ld-subtitle">Output</h2>
-              <Output
-                outputWidth={backgroundImageWidth * ((crop.width ?? 0) / 100)}
-                outputHeight={backgroundImageHeight * ((crop.height ?? 0) / 100)}
-                backgroundImageWidth={backgroundImageWidth}
-                backgroundImageHeight={backgroundImageHeight}
-                backgroundImageUrl={backgroundImageUrl}
-                backgroundImageOffsetX={backgroundImageWidth * ((crop.x ?? 0) / 100)}
-                backgroundImageOffsetY={backgroundImageHeight * ((crop.y ?? 0) / 100)}
-                text={[
-                  {
-                    text: textLine1,
-                    foregroundColour: textLine1Foreground,
-                    backgroundColour: textLine1Background,
-                  },
-                  {
-                    text: textLine2,
-                    foregroundColour: textLine2Foreground,
-                    backgroundColour: textLine2Background,
-                  },
-                  {
-                    text: textLine3,
-                    foregroundColour: textLine3Foreground,
-                    backgroundColour: textLine3Background,
-                  },
-                  {
-                    text: textLine4,
-                    foregroundColour: textLine4Foreground,
-                    backgroundColour: textLine4Background,
-                  },
-                  {
-                    text: textLine5,
-                    foregroundColour: textLine5Foreground,
-                    backgroundColour: textLine5Background,
-                  },
-                  {
-                    text: textLine6,
-                    foregroundColour: textLine6Foreground,
-                    backgroundColour: textLine6Background,
-                  },
-                  {
-                    text: textLine7,
-                    foregroundColour: textLine7Foreground,
-                    backgroundColour: textLine7Background,
-                  },
-                ]}
-                overlays={
-                  overlayImageUrl === null
-                    ? []
-                    : [
-                        {
-                          url: overlayImageUrl,
-                          width: overlayImageWidth!,
-                          height: overlayImageHeight!,
-                        },
-                      ]
-                }
-              />
+              <div style={{ position: "sticky", top: "0" }}>
+                <h2 className="ld-subtitle">Output</h2>
+                <Output
+                  outputWidth={backgroundImageWidth * ((crop.width ?? 0) / 100)}
+                  outputHeight={backgroundImageHeight * ((crop.height ?? 0) / 100)}
+                  backgroundImageWidth={backgroundImageWidth}
+                  backgroundImageHeight={backgroundImageHeight}
+                  backgroundImageUrl={backgroundImageUrl}
+                  backgroundImageOffsetX={backgroundImageWidth * ((crop.x ?? 0) / 100)}
+                  backgroundImageOffsetY={backgroundImageHeight * ((crop.y ?? 0) / 100)}
+                  text={[
+                    {
+                      text: textLine1,
+                      foregroundColour: textLine1Foreground,
+                      backgroundColour: textLine1Background,
+                    },
+                    {
+                      text: textLine2,
+                      foregroundColour: textLine2Foreground,
+                      backgroundColour: textLine2Background,
+                    },
+                    {
+                      text: textLine3,
+                      foregroundColour: textLine3Foreground,
+                      backgroundColour: textLine3Background,
+                    },
+                    {
+                      text: textLine4,
+                      foregroundColour: textLine4Foreground,
+                      backgroundColour: textLine4Background,
+                    },
+                    {
+                      text: textLine5,
+                      foregroundColour: textLine5Foreground,
+                      backgroundColour: textLine5Background,
+                    },
+                    {
+                      text: textLine6,
+                      foregroundColour: textLine6Foreground,
+                      backgroundColour: textLine6Background,
+                    },
+                    {
+                      text: textLine7,
+                      foregroundColour: textLine7Foreground,
+                      backgroundColour: textLine7Background,
+                    },
+                  ]}
+                  overlays={
+                    overlayImageUrl === null
+                      ? []
+                      : [
+                          {
+                            url: overlayImageUrl,
+                            width: overlayImageWidth!,
+                            height: overlayImageHeight!,
+                          },
+                        ]
+                  }
+                />
+              </div>
             </div>
           </div>
         </div>
