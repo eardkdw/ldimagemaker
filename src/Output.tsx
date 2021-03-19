@@ -39,7 +39,13 @@ const Output: FunctionComponent<{
         />
       ) : null}
       <div style={{ position: "relative" }}>
-        <svg ref={svgRef} viewBox={`0 0 ${outputWidth} ${outputHeight}`} style={{ width: "100%" }}>
+        <svg
+          ref={svgRef}
+          width={outputWidth}
+          height={outputHeight}
+          viewBox={`0 0 ${outputWidth} ${outputHeight}`}
+          style={{ width: "100%" }}
+        >
           <image
             href={backgroundImageUrl}
             width={backgroundImageWidth}
@@ -49,6 +55,7 @@ const Output: FunctionComponent<{
           />
           {text.map(({ text, foregroundColour, backgroundColour }, i) => (
             <TextWithBackground
+              key={i}
               x={0.02 * outputWidth}
               y={(i + 1.5) * lineHeight}
               textSize={textSize}
@@ -69,6 +76,7 @@ const Output: FunctionComponent<{
 
             return (
               <image
+                key={url}
                 href={url}
                 x={(outputWidth - scaledWidth) / 2}
                 y={(outputHeight - scaledHeight) / 2}

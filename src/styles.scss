@@ -54,3 +54,7 @@ $primary-invert: $dark;
 $weight-normal: 300;
 
 @import "~bulma";
+
+.column {
+  z-index: 1;
+}
