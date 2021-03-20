@@ -4,7 +4,7 @@ const OVERLAYS = [
   {
     name: "Corner Fade",
     url: "overlays/fade-black.png",
-    scalepos: [1, 1, 1.0, 1.0],
+    scalepos: [1, 1, 1.0, 1.0], //scalepos is [x, y, w, h] where each is a decimal from 0-1 indicating position (0.5 is centered for x,y) or a scale factor
   },
   {
     name: "Yellow Flag",
