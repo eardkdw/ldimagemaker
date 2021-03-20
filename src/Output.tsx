@@ -11,7 +11,7 @@ const Output: FunctionComponent<{
   backgroundImageOffsetX: number;
   backgroundImageOffsetY: number;
   text: { text: string; foregroundColour: string; backgroundColour: string }[];
-  overlays: { url: string; width: number; height: number }[];
+  overlays: { url: string; width: number; height: number; scalepos: Array<number> }[];
 }> = ({
   outputWidth,
   outputHeight,
@@ -64,24 +64,30 @@ const Output: FunctionComponent<{
               backgroundColour={backgroundColour}
             />
           ))}
-          {overlays.map(({ url, width, height }) => {
+          {overlays.map(({ url, width, height, scalepos }) => {
+            const posX = scalepos ? scalepos[0] : 0;
+            const posY = scalepos ? scalepos[1] : 0;
+            const scaleW = scalepos ? scalepos[2] : 1;
+            const scaleH = scalepos ? scalepos[3] : 1;
+
             const scaledWidth =
               outputWidth / outputHeight > width / height
-                ? width * (outputHeight / height)
-                : outputWidth;
+                ? width * scaleW * (outputHeight / height)
+                : outputWidth * scaleW;
             const scaledHeight =
               outputWidth / outputHeight > width / height
-                ? outputHeight
-                : height * (outputWidth / width);
+                ? outputHeight * scaleH
+                : height * scaleH * (outputWidth / width);
 
             return (
               <image
                 key={url}
                 href={url}
-                x={(outputWidth - scaledWidth) / 2}
-                y={(outputHeight - scaledHeight) / 2}
+                x={(outputWidth - scaledWidth) * posX}
+                y={(outputHeight - scaledHeight) * posY}
                 width={scaledWidth}
                 height={scaledHeight}
+                data-scale={scalepos}
               />
             );
           })}

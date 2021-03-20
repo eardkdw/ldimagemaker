@@ -14,6 +14,7 @@ const App: FunctionComponent = () => {
   const [overlayImageUrl, setOverlayImageUrl] = useState<string | null>(null);
   const [overlayImageWidth, setOverlayImageWidth] = useState<number | null>(null);
   const [overlayImageHeight, setOverlayImageHeight] = useState<number | null>(null);
+  const [overlayImageScalePos, setOverlayImageScalePos] = useState<Array<number> | null>(null);
 
   const [textLine1, setTextLine1] = useState<string>("");
   const [textLine1Background, setTextLine1Background] = useState<string>("#faa61a");
@@ -149,10 +150,11 @@ const App: FunctionComponent = () => {
                 <div className="field">
                   <div className="control">
                     <OverlayPicker
-                      setOverlay={(url, width, height) => {
+                      setOverlay={(url, width, height, scalepos) => {
                         setOverlayImageUrl(url);
                         setOverlayImageWidth(width);
                         setOverlayImageHeight(height);
+                        setOverlayImageScalePos(scalepos);
                       }}
                     />
                   </div>
@@ -215,6 +217,7 @@ const App: FunctionComponent = () => {
                             url: overlayImageUrl,
                             width: overlayImageWidth!,
                             height: overlayImageHeight!,
+                            scalepos: overlayImageScalePos!,
                           },
                         ]
                   }
