@@ -1,6 +1,14 @@
 import React, { FunctionComponent, useRef, useState } from "react";
 import SaveModal from "./SaveModal";
 import TextWithBackground from "./TextWithBackground";
+import { OverlayScalePos } from "./OverlayPicker";
+
+interface OutputOverlay {
+  url: string;
+  width: number;
+  height: number;
+  scalepos: OverlayScalePos;
+}
 
 const Output: FunctionComponent<{
   outputWidth: number;
@@ -11,7 +19,7 @@ const Output: FunctionComponent<{
   backgroundImageOffsetX: number;
   backgroundImageOffsetY: number;
   text: { text: string; foregroundColour: string; backgroundColour: string }[];
-  overlays: { url: string; width: number; height: number; scalepos: Array<number> }[];
+  overlays: OutputOverlay[];
 }> = ({
   outputWidth,
   outputHeight,

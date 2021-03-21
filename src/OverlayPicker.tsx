@@ -1,10 +1,19 @@
 import React, { FunctionComponent } from "react";
 
-const OVERLAYS = [
+//scalepos is [x, y, w, h] where each is a decimal from 0-1 indicating position (0.5 is centered for x,y) or a scale factor
+export type OverlayScalePos = [number, number, number, number];
+
+export interface Overlay {
+  name: string;
+  url: string;
+  scalepos: OverlayScalePos;
+}
+
+const OVERLAYS: Overlay[] = [
   {
     name: "Corner Fade",
     url: "overlays/fade-black.png",
-    scalepos: [1, 1, 1.0, 1.0], //scalepos is [x, y, w, h] where each is a decimal from 0-1 indicating position (0.5 is centered for x,y) or a scale factor
+    scalepos: [1, 1, 1.0, 1.0],
   },
   {
     name: "Yellow Flag",
@@ -64,7 +73,7 @@ const OverlayPicker: FunctionComponent<{
     url: string | null,
     width: number | null,
     height: number | null,
-    scalepos: Array<number>,
+    scalepos: OverlayScalePos,
   ) => void;
 }> = ({ setOverlay }) => (
   <div className="buttons">

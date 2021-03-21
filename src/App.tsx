@@ -3,7 +3,7 @@ import Output from "./Output";
 import FilePicker from "./FilePicker";
 import Cropper from "./Cropper";
 import { PercentCrop } from "react-image-crop";
-import OverlayPicker from "./OverlayPicker";
+import OverlayPicker, { OverlayScalePos } from "./OverlayPicker";
 import TextEditor from "./TextEditor";
 
 const App: FunctionComponent = () => {
@@ -14,7 +14,7 @@ const App: FunctionComponent = () => {
   const [overlayImageUrl, setOverlayImageUrl] = useState<string | null>(null);
   const [overlayImageWidth, setOverlayImageWidth] = useState<number | null>(null);
   const [overlayImageHeight, setOverlayImageHeight] = useState<number | null>(null);
-  const [overlayImageScalePos, setOverlayImageScalePos] = useState<Array<number> | null>(null);
+  const [overlayImageScalePos, setOverlayImageScalePos] = useState<OverlayScalePos | null>(null);
 
   const [textLine1, setTextLine1] = useState<string>("");
   const [textLine1Background, setTextLine1Background] = useState<string>("#faa61a");
