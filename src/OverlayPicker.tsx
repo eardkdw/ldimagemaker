@@ -12,37 +12,37 @@ export interface Overlay {
 const OVERLAYS: Overlay[] = [
   {
     name: "Corner Fade",
-    url: "overlays/fade-black.png",
+    url: new URL("overlays/fade-black.png", window.location.href + "/").pathname,
     scalepos: [1, 1, 1.0, 1.0],
   },
   {
     name: "Yellow Flag",
-    url: "overlays/ld-banner.png",
+    url: new URL("overlays/ld-banner.png", window.location.href + "/").pathname,
     scalepos: [1, 0, 1.0, 1.0],
   },
   {
     name: "Stop Brexit",
-    url: "overlays/ld-logotype.png",
+    url: new URL("overlays/ld-logotype.png", window.location.href + "/").pathname,
     scalepos: [1, 1, 1.0, 1.0],
   },
   {
     name: "Triangles",
-    url: "overlays/triangles.png",
+    url: new URL("overlays/triangles.png", window.location.href + "/").pathname,
     scalepos: [1, 1, 1.0, 1.0],
   },
   {
     name: "Main Party Logo",
-    url: "overlays/main-ld-logo.png",
+    url: new URL("overlays/main-ld-logo.png", window.location.href + "/").pathname,
     scalepos: [0.95, 0.95, 0.2, 0.2],
   },
   {
     name: "White Party Logo",
-    url: "overlays/white-text-yellow-bird.png",
+    url: new URL("overlays/white-text-yellow-bird.png", window.location.href + "/").pathname,
     scalepos: [0.95, 0.95, 0.2, 0.2],
   },
   {
     name: "Charcoal Party Logo",
-    url: "overlays/charcoal-ld-logo.png",
+    url: new URL("overlays/charcoal-ld-logo.png", window.location.href + "/").pathname,
     scalepos: [0.95, 0.95, 0.2, 0.2],
   },
 ];
