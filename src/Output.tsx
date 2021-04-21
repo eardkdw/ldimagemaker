@@ -61,17 +61,6 @@ const Output: FunctionComponent<{
             x={-backgroundImageOffsetX}
             y={-backgroundImageOffsetY}
           />
-          {text.map(({ text, foregroundColour, backgroundColour }, i) => (
-            <TextWithBackground
-              key={i}
-              x={0.02 * outputWidth}
-              y={(i + 1.5) * lineHeight}
-              textSize={textSize}
-              text={text}
-              foregroundColour={foregroundColour}
-              backgroundColour={backgroundColour}
-            />
-          ))}
           {overlays.map(({ url, width, height, scalepos }) => {
             const posX = scalepos ? scalepos[0] : 0;
             const posY = scalepos ? scalepos[1] : 0;
@@ -99,6 +88,17 @@ const Output: FunctionComponent<{
               />
             );
           })}
+          {text.map(({ text, foregroundColour, backgroundColour }, i) => (
+            <TextWithBackground
+              key={i}
+              x={0.02 * outputWidth}
+              y={(i + 1.5) * lineHeight}
+              textSize={textSize}
+              text={text}
+              foregroundColour={foregroundColour}
+              backgroundColour={backgroundColour}
+            />
+          ))}
         </svg>
       </div>
       <div className="buttons">
